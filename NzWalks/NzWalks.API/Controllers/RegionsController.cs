@@ -19,9 +19,9 @@ namespace NzWalks.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllRegions() {
+        public async Task<IActionResult> GetAllRegions() {
 
-            var regions = _regionRepository.GetAllRegions();
+            var regions = await _regionRepository.GetAllRegionsAsync();
 
             var regionsDto = _mapper.Map<List<RegionDTO>>(regions);
            
