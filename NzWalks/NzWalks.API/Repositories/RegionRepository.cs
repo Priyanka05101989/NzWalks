@@ -11,9 +11,9 @@ namespace NzWalks.API.Repositories
         {
             this._context = context;
         }
-        public async Task<IEnumerable<Region>> GetAllRegionsAsync()
+        public async Task<List<Region>> GetAllRegionsAsync()
         {
-            var regions = await _context.Regions.ToListAsync();
+            var regions = await _context.Regions.Include(x => x.Walks).ThenInclude(x => x.WalkDifficulty).ToListAsync();
 
             return regions;
         }

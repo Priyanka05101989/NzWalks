@@ -4,7 +4,7 @@ namespace NzWalks.API.Repositories
 {
     public interface IRegionReopsitory
     {
-        Task<IEnumerable<Region>> GetAllRegionsAsync();
+        Task<List<Region>> GetAllRegionsAsync();
 
         Task<Region> GetRegionByIdAsync(string Name);
 

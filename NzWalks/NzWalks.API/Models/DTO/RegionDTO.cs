@@ -1,4 +1,6 @@
-﻿namespace NzWalks.API.Models.DTO
+﻿using NzWalks.API.Models.Domain;
+
+namespace NzWalks.API.Models.DTO
 {
     public class RegionDTO
     {
@@ -6,6 +8,7 @@
         public string Code { get; set; }
         public string Name { get; set; }
         public double Area { get; set; }
-        
+        public List<Walk> Walks { get; set; }
+
     }
 }
