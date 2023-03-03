@@ -11,6 +11,7 @@ namespace NzWalks.API.Profiles
         {
             CreateMap<Region, RegionDTO>()
                                            .ForMember(dest => dest.RegionID, Options => Options.MapFrom(src => src.Id));
+            CreateMap<AddRegionDTO, Region>();
         }
 
     }

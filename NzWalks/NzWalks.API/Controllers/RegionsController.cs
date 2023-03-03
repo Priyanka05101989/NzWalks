@@ -30,6 +30,33 @@ namespace NzWalks.API.Controllers
         
         
         }
+
+        [HttpGet]
+        [Route("{name}")]
+        public async Task<IActionResult> GetRegionById(string name)
+        {
+            var region = await _regionRepository.GetRegionByIdAsync(name);
+
+            if(region == null)
+            {
+                return NotFound();
+            }
+
+            var regionDto = _mapper.Map<RegionDTO>(region);
+
+            return Ok(regionDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddRegion(AddRegionDTO region)
+        {
+
+            var regionMode = _mapper.Map<Region>(region);
+
+            var result = await _regionRepository.AddRegionAsyn(regionMode);
+
+            return Ok(result);
+        }
         
     }
 }
